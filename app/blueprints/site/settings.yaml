@@ -1,0 +1,52 @@
+uuid: 7c0e43b1-a677-4b6e-b2e7-869ff93a297b
+handle: Site\Settings
+type: global
+name: Settings
+description: Adjust the default settings of the site.
+
+navigation:
+    parent: settings
+    icon: icon-cog
+    order: 24
+    category: CATEGORY_CMS
+
+fields:
+    company_name:
+        label: Company Name
+        tab: General
+        span: left
+        type: text
+
+    registration_year:
+        label: Registration year
+        tab: General
+        span: left
+
+    address:
+        label: Address
+        tab: General
+        span: left
+
+    phone:
+        label: Phone
+        tab: General
+        span: left
+
+    email:
+        label: Email
+        tab: General
+        span: left
+
+    whatsapp_url:
+        label: WhatsApp URL
+        tab: Social
+        placeholder: "https://..."
+        span: left
+
+    google_maps_iframe:
+        label: Google Maps Iframe
+        tab: Social
+        type: codeeditor
+        size: large
+        language: html
+        span: full

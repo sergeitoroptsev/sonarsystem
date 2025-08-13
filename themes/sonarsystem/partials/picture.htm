@@ -1,0 +1,63 @@
+{# partials/picture.htm - OctoberCMS partial (no PHP required)
+   Supports: loading, decoding, fetchpriority with defaults
+#}
+
+{# ---- Defaults & inputs ---- #}
+{% set formats_raw = (formats is defined and formats) ? formats : 'webp' %}
+{% set formats = formats_raw|split(',') %}
+{% set widths_raw = (widths is defined and widths) ? widths : '320,640,1280' %}
+{% set widths = widths_raw|split(',') %}
+{% set fallbackFormat = (fallbackFormat is defined and fallbackFormat) ? fallbackFormat : formats[0] %}
+{% set picture_class = picture_class is defined ? picture_class : '' %}
+{% set class = class is defined ? class : '' %}
+{% set sizes_attr = sizes is defined ? sizes : '' %}
+
+{# New attributes with requested defaults #}
+{% set loading_attr = loading is defined ? loading : 'lazy' %}
+{% set decoding_attr = decoding is defined ? decoding : 'async' %}
+{% set fetchpriority_attr = fetchpriority is defined ? fetchpriority : 'auto' %}
+
+{% if alt is not defined or alt is empty %}
+    <!-- WARNING: picture partial called without `alt` attribute -->
+{% endif %}
+
+{# helper to detect if src is already a URL/resizer path #}
+{% macro is_url(s) %}
+    {{- (s is not null) and ((s|slice(0,4) == 'http') or (s|slice(0,8) == '/storage/') or (s|slice(0,8) == '/resizer/')) -}}
+{% endmacro %}
+
+<picture{% if picture_class %} class="{{ picture_class|e }}"{% endif %}>
+    {% for fmt in formats %}
+        {% set pieces = [] %}
+        {% for w in widths %}
+            {% set wi = (w|trim) + 0 %}
+            {% if _self.is_url(src) %}
+                {# src already a URL/resizer path -> use as-is #}
+                {% set url = src %}
+            {% else %}
+                {# src is an image reference -> perform resize for each width/format #}
+                {% set url = src|resize(wi, null, {'extension': fmt|trim}) %}
+            {% endif %}
+            {% set pieces = pieces|merge([ url ~ ' ' ~ wi ~ 'w' ]) %}
+        {% endfor %}
+        {% set srcset = pieces|join(', ') %}
+        <source
+            srcset="{{ srcset|e }}"
+            type="image/{{ fmt|trim|e }}"
+            {% if sizes_attr %} sizes="{{ sizes_attr|e }}"{% endif %}>
+    {% endfor %}
+
+    {% set fallback_width = (widths|last|trim) + 0 %}
+    {% if _self.is_url(src) %}
+        {% set fallback_src = src %}
+    {% else %}
+        {% set fallback_src = src|resize(fallback_width, null, {'extension': fallbackFormat, quality: '90'}) %}
+    {% endif %}
+
+    <img src="{{ fallback_src|e }}"
+         alt="{{ alt|default('')|e }}"
+         loading="{{ loading_attr|e }}"
+         decoding="{{ decoding_attr|e }}"
+         fetchpriority="{{ fetchpriority_attr|e }}"
+        {% if class %} class="{{ class|e }}"{% endif %} />
+</picture>

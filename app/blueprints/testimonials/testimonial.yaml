@@ -1,0 +1,31 @@
+uuid: 68e23b0b-44cb-4eda-80bc-d2ff7d1d583c
+handle: Testimonials\Testimonial
+type: stream
+name: Testimonials
+drafts: false
+multisite: false
+pagefinder: false
+
+navigation:
+    icon: icon-quote
+    order: 200
+
+customMessages:
+    buttonCreate: New Testimonial
+
+fields:
+    text:
+        label: Text
+        type: textarea
+        span: left
+
+    author_name:
+        label: Author Name
+        type: text
+        span: left
+
+    author_position:
+        label: Author Position
+        type: text
+        span: left
+

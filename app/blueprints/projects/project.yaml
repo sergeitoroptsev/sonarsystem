@@ -1,0 +1,40 @@
+uuid: 91b2d535-c4e9-4500-a979-0b9dadd6bd53
+handle: Projects\Project
+type: stream
+name: Projects
+drafts: false
+multisite: sync
+pagefinder: false
+
+navigation:
+    icon: icon-object-group
+    order: 100
+
+customMessages:
+    buttonCreate: New Project
+
+fields:
+    services:
+        label: Services
+        commentAbove: Services related to this Project.
+        type: entries
+        source: Services\Service
+        displayMode: taglist
+        span: left
+        translatable: false
+
+    year:
+        label: Year(s)
+        type: text
+        span: left
+        translatable: false
+
+    photos:
+        label: Photos
+        type: fileupload
+        mode: image
+        span: left
+        translatable: false
+
+
+

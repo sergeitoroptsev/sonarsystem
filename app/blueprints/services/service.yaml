@@ -1,0 +1,35 @@
+uuid: d0f20aed-5f89-4c22-970a-8108a0a04180
+handle: Services\Service
+type: structure
+name: Services
+drafts: false
+multisite: sync
+pagefinder: false
+
+navigation:
+    icon: icon-th-large
+    order: 300
+
+customMessages:
+    buttonCreate: New Service
+
+fields:
+    icon:
+        label: Icon
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: left
+        translatable: false
+    short_description:
+        label: Short Description
+        type: textarea
+        size: large
+        span: left
+    projects:
+        type: entries
+        source: Projects\Project
+        inverse: services
+        hidden: true
+        column: invisible
+        translatable: false

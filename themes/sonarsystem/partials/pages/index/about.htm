@@ -1,0 +1,27 @@
+<section id="about" class="mt-104 md:mt-112 xl:mt-128">
+    <div class="container mx-auto px-24">
+        <div class="grid-layout">
+            <div class="col-span-full xl:col-span-6">
+
+                <h2 class="h2 text-black title-animation">
+                    {{ homepage.about_title }}
+                </h2>
+
+                <div class="paragraph mt-26 md:mt-28 xl:mt-32">
+                    {{ homepage.about_description | raw }}
+                </div>
+            </div>
+            <div class="col-span-full xl:col-span-6 mt-52 md:mt-56 xl:mt-0">
+                {% partial "picture"
+                    src=homepage.about_image
+                    alt="Sonar System Team"
+                    formats="webp,jpg"
+                    fallbackFormat="jpg"
+                    widths="320,640,1280"
+                    sizes="(max-width: 600px) 480px, 800px"
+                    class="object-fill w-full md:max-w-651 h-auto xl:max-w-full"
+                %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+
+    --font-sans: "Montserrat", sans-serif;
+    --font-mono: "Montserrat", sans-serif;
+    --font-display: "Montserrat", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
+
+    --spacing: 0.0625rem;
+
+    --color-white: #FFFAF9;
+    --color-black: #000000;
+    --color-green: #458052;
+    --color-dark-green: #0D1F08;
+    --color-grey: #ABABAB;
+    --color-light-grey: #E3E3E3;
+
+}
+
+@layer base {
+
+    body {
+        @apply bg-white overflow-x-hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-open-sans;
+    }
+
+}
+
+@layer components {
+
+    .cursor-follower {
+        @apply fixed top-0 left-0 size-10 rounded-full bg-green opacity-0 z-[10000] select-none pointer-events-none;
+    }
+
+    .h1 {
+        @apply font-open-sans max-[462px]:text-[3.35rem] text-[3.875rem] md:text-[4.25rem] xl:text-[8rem] leading-[100%] font-bold uppercase;
+    }
+
+    .h2 {
+        @apply font-open-sans max-[386px]:text-[1.9375rem] max-[460px]:text-[2.35rem] text-[2.875rem] md:text-[3.375rem] xl:text-[3.8125rem] leading-[100%] font-bold uppercase;
+    }
+
+    .h3 {
+        @apply font-open-sans text-[2.5rem] md:text-[2.6875rem] xl:text-[3.0625rem] leading-[100%] font-bold;
+    }
+
+    .h4 {
+        @apply font-open-sans text-[2rem] md:text-[2.125rem] xl:text-[2.4375rem] leading-[100%] font-bold;
+    }
+
+    .h5 {
+        @apply font-open-sans text-[1.5625rem] md:text-[1.6875rem] xl:text-[1.9375rem] leading-[120%] font-bold;
+    }
+
+    .h6 {
+        @apply font-open-sans text-[1.25rem] md:text-[1.375rem] xl:text-[1.5625rem] leading-[120%] font-bold;
+    }
+
+    .text-lg {
+        @apply text-[1rem] md:text-[1.125rem] xl:text-[1.25rem] leading-[160%];
+    }
+
+    .text-base {
+        @apply text-[0.8125rem] md:text-[0.875rem] xl:text-[1rem] leading-[160%];
+    }
+
+    .text-sm {
+        @apply text-[0.625rem] md:text-[0.6875rem] xl:text-[0.8125rem] leading-[160%];
+    }
+
+    .text-xs {
+        @apply text-[0.5rem] md:text-[0.5625rem] xl:text-[0.625rem] leading-[160%];
+    }
+
+    .grid-layout {
+        @apply grid grid-cols-4 md:grid-cols-6 xl:grid-cols-12 gap-x-24 xl:gap-x-32;
+    }
+
+    .text-btn {
+        @apply text-base;
+    }
+
+    .nav-link {
+        @apply text-lg text-white hover:text-light-grey transition duration-300 leading-[100%];
+    }
+
+    .btn-hero {
+        @apply text-base uppercase flex items-center justify-center w-full py-16 md:py-18 xl:py-20 bg-white text-dark-green hover:bg-light-grey transition duration-300;
+    }
+
+    .paragraph p:not(:first-child) {
+        @apply mt-12 md:mt-14 xl:mt-16;
+    }
+
+    .btn-link {
+        @apply inline-flex self-start items-center space-x-8 md:space-x-8 xl:space-x-10 max-[350px]:text-base text-lg uppercase text-green hover:text-green/80 transition duration-300 leading-[100%];
+    }
+
+    .btn-link__icon {
+        @apply size-20 md:size-20 xl:size-24;
+    }
+
+    .map-iframe {
+        @apply w-full h-full border-0;
+    }
+
+    .form-input {
+        @apply w-full px-20 py-20 text-lg text-dark-green placeholder:text-dark-green/80 bg-white border border-grey focus:border-green focus:ring-green focus:outline-green;
+    }
+
+    .textarea-input {
+        @apply w-full h-160 md:h-180 xl:h-180 px-20 py-20 text-lg text-dark-green placeholder:text-dark-green/80 bg-white border border-grey focus:border-green focus:ring-green focus:outline-green;
+    }
+
+    .btn-send {
+        @apply text-base uppercase flex items-center justify-center space-x-8 md:space-x-8 xl:space-x-10 w-full py-16 md:py-18 xl:py-20 bg-green text-light-grey hover:bg-dark-green hover:cursor-pointer disabled:cursor-default disabled:hover:bg-green disabled:opacity-75 transition duration-300;
+    }
+
+    .filepond--custom .filepond--drip {
+        @apply !bg-white !border-2 border-dashed !border-grey !opacity-100 !rounded-none py-40;
+    }
+
+    .filepond--root .filepond--drop-label {
+        @apply !min-h-110;
+    }
+
+}

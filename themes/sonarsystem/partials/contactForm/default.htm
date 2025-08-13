@@ -1,0 +1,55 @@
+{{ form_ajax(__SELF__ ~ '::onFormSubmit', {
+    validate: true,
+    files: true,
+    success: "document.getElementById('submitBtn').disabled = true; document.getElementById('submitBtn');"
+}) }}
+
+<div class="grid md:grid-cols-6 xl:grid-cols-6 gap-x-24 xl:gap-x-32 gap-y-24 md:gap-y-24 xl:gap-y-32">
+
+    <div class="col-span-full md:col-span-2 xl:col-span-3">
+        <label>
+            <input type="text" placeholder="Name *" name="name" required class="form-input">
+        </label>
+    </div>
+
+    <div class="col-span-full md:col-span-2 xl:col-span-3">
+        <label>
+            <input type="email" placeholder="Email *" name="email" required class="form-input">
+        </label>
+    </div>
+
+    <div class="col-span-full md:col-span-2 xl:col-span-3">
+        <label>
+            <input type="tel" placeholder="Telefonnummer" name="phone" class="form-input">
+        </label>
+    </div>
+
+    <div class="col-span-full">
+        <label>
+            <textarea type="tel" placeholder="Nachricht" name="message" class="textarea-input"></textarea>
+        </label>
+    </div>
+
+    <div class="col-span-full">
+        {% partial '@filepond' %}
+    </div>
+
+</div>
+
+<div class="mt-32 md:mt-28 xl:mt-32">
+    <button type="submit" id="submitBtn" class="btn-send">
+        <span>
+            Senden
+        </span>
+        <span>
+            <svg class="size-28 md:size-28 xl:size-32" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.5517 3.44713C24.3861 3.2806 24.1783 3.16214 23.9507 3.10435C23.723 3.04657 23.4839 3.05163 23.2589 3.119L2.26874 9.47916C2.01187 9.5516 1.78318 9.70064 1.61318 9.9064C1.44318 10.1122 1.33995 10.3648 1.31725 10.6308C1.29456 10.8967 1.35348 11.1632 1.48615 11.3948C1.61883 11.6264 1.81895 11.812 2.05984 11.927L11.4847 16.5153L16.0697 25.9379C16.1748 26.1628 16.3421 26.3529 16.5518 26.4856C16.7615 26.6184 17.0049 26.6883 17.2531 26.6871C17.2903 26.6871 17.3286 26.6871 17.3625 26.6871C17.6278 26.6664 17.8804 26.5648 18.0862 26.396C18.2919 26.2272 18.441 25.9994 18.5131 25.7432L24.8798 4.74322V4.73447C24.9464 4.51025 24.951 4.2722 24.8933 4.04556C24.8355 3.81892 24.7175 3.61214 24.5517 3.44713ZM24.0464 4.49057L17.6775 25.4906C17.6532 25.5766 17.6031 25.6531 17.534 25.7098C17.4648 25.7665 17.38 25.8007 17.2909 25.8077C17.2018 25.8147 17.1126 25.7943 17.0355 25.7491C16.9583 25.704 16.8969 25.6362 16.8594 25.5551L12.3422 16.2735L17.8109 10.8048C17.8516 10.7641 17.8838 10.7159 17.9058 10.6628C17.9278 10.6097 17.9391 10.5527 17.9391 10.4953C17.9391 10.4378 17.9278 10.3808 17.9058 10.3277C17.8838 10.2746 17.8516 10.2264 17.8109 10.1857C17.7703 10.1451 17.722 10.1128 17.6689 10.0908C17.6158 10.0688 17.5589 10.0575 17.5014 10.0575C17.4439 10.0575 17.387 10.0688 17.3339 10.0908C17.2808 10.1128 17.2325 10.1451 17.1919 10.1857L11.7231 15.6545L2.43718 11.1362C2.35456 11.0993 2.2859 11.0369 2.24123 10.9582C2.19656 10.8795 2.17823 10.7886 2.1889 10.6987C2.19542 10.6077 2.23073 10.5211 2.28972 10.4515C2.34871 10.3819 2.42832 10.3329 2.51703 10.3115L23.505 3.95463C23.5441 3.94312 23.5846 3.93723 23.6253 3.93713C23.7402 3.93877 23.8498 3.98552 23.9305 4.06728C23.986 4.12092 24.0261 4.18853 24.0465 4.26301C24.0669 4.3375 24.0669 4.4161 24.0464 4.49057Z" fill="#E3E3E3"/>
+            </svg>
+        </span>
+    </button>
+</div>
+
+<div id="{{ __SELF__ }}_forms_flash"></div>
+
+{{ form_close() }}
+

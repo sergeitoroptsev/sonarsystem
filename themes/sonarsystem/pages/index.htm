@@ -1,0 +1,55 @@
+url = "/"
+layout = "landing"
+title = "Home"
+meta_title = "SonarExpert — Elektroinstallationen, Licht & Sicherheit"
+meta_description = "SonarExpert – Tradition trifft Innovation. Elektroinstallationen, Schaltschrankbau, Licht, Sicherheit & Smart Home (KNX). 60+ Fachkräfte. Jetzt beraten lassen."
+
+[section homepage]
+handle = "Page\Index"
+
+[collection services]
+handle = "Services\Service"
+
+[collection projects]
+handle = "Projects\Project"
+
+[collection testimonials]
+handle = "Testimonials\Testimonial"
+
+[uploadForm contactForm]
+group = "Contact form"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+messages_partial = "contactForm/flash"
+mail_enabled = 1
+mail_subject = "Request from SonarSystem.de - {{ form.name }} ( {{ form.email }} )"
+mail_recipients[] = "oooroyalgrad@gmail.com"
+mail_template = "contact"
+mail_uploads = 1
+feedback_mode = "flash"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+uploader_enable = 1
+uploader_label = "Drag & Drop your files or Browse"
+maxFiles = 6
+maxFileSize = "2MB"
+maxTotalSize = "5MB"
+fileTypes[application/pdf] = "pdf"
+fileTypes[application/zip] = "zip"
+fileTypes[image/png] = "png"
+fileTypes[image/jpeg] = "jpg"
+==
+{% set projects = projects.orderBy('published_at_date', 'desc').get() %}
+{% set testimonials = testimonials.orderBy('published_at_date', 'desc').get() %}
+
+{% partial 'pages/index/hero' %}
+{% partial 'pages/index/about' %}
+{% partial 'pages/index/services' %}
+{% partial 'pages/index/projects' %}
+{% partial 'pages/index/testimonials' %}
+{% partial 'pages/index/contacts' %}
+{% partial 'pages/index/map' %}

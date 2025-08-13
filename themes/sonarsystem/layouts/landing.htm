@@ -1,0 +1,44 @@
+[sitePicker]
+
+[global settings]
+handle = "Site\Settings"
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'site/head/head-meta' %}
+    <title>{{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    {% partial 'site/head/analytics-code' %}
+    {{ vite([
+        'resources/css/main.css',
+        'resources/js/main.js',
+    ]) }}
+    {% partial 'site/head/head-links' %}
+    {% partial 'site/head/head-scripts' %}
+    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body class="layout-{{ this.layout.id }}">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PR7GCFV2"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="cursor-follower"></div>
+
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        {% partial 'site/header' %}
+        <main>
+            {% page %}
+        </main>
+        {% partial 'site/footer' %}
+    </div>
+</div>
+
+<div id="adaptive-cursor"></div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+uuid: 3210ebe9-6940-4d9e-8667-a0ec42199f4d
+handle: Page\Index
+type: single
+name: Home Page
+drafts: true
+multisite: sync
+pagefinder: false
+
+navigation:
+    icon: icon-rocket
+    order: 400
+
+fields:
+    hero_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: Hero
+
+    hero_description:
+        label: Description
+        span: left
+        type: textarea
+        size: medium
+        tab: Hero
+
+    hero_video_mp4:
+        label: Video MP4
+        type: fileupload
+        mode: file
+        maxFiles: 1
+        span: left
+        tab: Hero
+        translatable: false
+
+    hero_video_webm:
+        label: Video WebM
+        type: fileupload
+        mode: file
+        maxFiles: 1
+        span: left
+        tab: Hero
+        translatable: false
+
+    hero_video_poster:
+        label: Video Poster
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: left
+        tab: Hero
+        translatable: false
+
+    about_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: About
+
+    about_description:
+        label: Description
+        span: left
+        type: richeditor
+        size: large
+        tab: About
+
+    about_image:
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: left
+        tab: About
+        translatable: false
+
+    services_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: Services
+
+    projects_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: Projects
+
+    projects_description:
+        label: Description
+        span: left
+        type: richeditor
+        size: large
+        tab: Projects
+
+    projects_file:
+        label: Projects File
+        type: fileupload
+        mode: file
+        maxFiles: 1
+        span: left
+        tab: Projects
+        translatable: false
+
+    testimonials_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: Testimonials
+
+    testimonials_description:
+        label: Description
+        span: left
+        type: richeditor
+        size: large
+        tab: Testimonials
+
+    contacts_title:
+        label: Title
+        span: left
+        type: codeeditor
+        language: html
+        size: large
+        tab: Contacts
+
+    contacts_description:
+        label: Description
+        span: left
+        type: richeditor
+        size: large
+        tab: Contacts
+
+    contacts_hr_1:
+        type: ruler
+        tab: Contacts
+
+    contacts_files:
+        label: Files
+        span: left
+        type: repeater
+        tab: Contacts
+        form:
+            fields:
+                contacts_file:
+                    label: File
+                    type: fileupload
+                    mode: file
+                    maxFiles: 1
+                contacts_title:
+                    label: Title
+                    type: text
+                contacts_icon:
+                    label: Icon
+                    type: codeeditor
+                    language: html
+                    size: large
