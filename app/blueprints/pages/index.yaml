@@ -150,11 +150,25 @@ fields:
         tab: Contacts
         form:
             fields:
+                is_contacts_external_link:
+                    label: Is External Link?
+                    type: checkbox
                 contacts_file:
                     label: File
                     type: fileupload
                     mode: file
                     maxFiles: 1
+                    trigger:
+                        action: hide
+                        field: is_contacts_external_link
+                        condition: checked
+                contacts_external_link:
+                    label: External Link
+                    type: text
+                    trigger:
+                        action: show
+                        field: is_contacts_external_link
+                        condition: checked
                 contacts_title:
                     label: Title
                     type: text
