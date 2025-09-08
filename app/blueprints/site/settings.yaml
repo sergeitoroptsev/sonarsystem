@@ -32,6 +32,11 @@ fields:
         tab: General
         span: left
 
+    phone2:
+        label: Phone 2
+        tab: General
+        span: left
+
     email:
         label: Email
         tab: General
